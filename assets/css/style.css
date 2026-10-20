@@ -1,0 +1,167 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: #242321;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.login-container {
+    position: relative;
+    width: 100%;
+    min-height: 390px;
+    height: min(70vw, 620px);
+    max-height: calc(100vh - 16px);
+    overflow: hidden;
+    border: 16px solid #34312c;
+background:
+    linear-gradient(rgba(0,0,0,.16), rgba(0,0,0,.16)),
+    url("../image/foto1.png") center / cover no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,.12),
+        transparent 65%,
+        rgba(0,0,0,.08)
+    );
+}
+
+.left-content {
+    position: absolute;
+    z-index: 1;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.left-content h1 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.left-content p {
+    margin-top: 3px;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.login-box {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 5.3%;
+    transform: translateY(-50%);
+    width: 42%;
+    max-width: 360px;
+    min-width: 220px;
+    min-height: 263px;
+    padding: 31px 18px;
+    border: 1px solid #ffffff50;
+    border-radius: 9px;
+    background: rgba(220, 220, 220, .65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.form-group {
+    margin-bottom: 13px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: white;
+    font-size: 12px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 27px;
+    padding: 5px 8px;
+    border: 0;
+    border-radius: 2px;
+    background: white;
+    font-size: 13px;
+    outline: none;
+}
+
+.form-group input:focus {
+    box-shadow: 0 0 0 2px #23496d;
+}
+
+.forgot-password {
+    margin-top: -5px;
+    margin-bottom: 12px;
+    text-align: right;
+}
+
+.forgot-password a {
+    color: white;
+    font-size: 9px;
+}
+
+.btn-login {
+    width: 100%;
+    height: 27px;
+    border: 0;
+    border-radius: 2px;
+    background: #193f65;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background: #102e4b;
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-container {
+        height: auto;
+        max-height: none;
+        min-height: 620px;
+        border-width: 8px;
+        background-position: center;
+    }
+
+    .left-content {
+        top: 45px;
+        left: 7%;
+        transform: none;
+    }
+
+    .login-box {
+        top: 56%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -20%);
+        width: 85%;
+        max-width: 340px;
+        min-width: 0;
+    }
+}

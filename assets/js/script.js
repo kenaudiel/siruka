@@ -1,0 +1,1 @@
+console.log("Halaman login SIRUKA berhasil dimuat.");
