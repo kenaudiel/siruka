@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIRUKA - Login</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+  <?php 
+    $pagetitle = "Beranda - Siruka";
+    $pageCSS = "beranda.css";
+
+    include 'includes/header.php'
+  ?>
 <body>
 
     <main class="login-wrapper">

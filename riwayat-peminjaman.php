@@ -1,46 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riwayat Peminjaman - SIRUKA</title>
-    <link rel="stylesheet" href="assets/css/riwayat-peminjaman.css">
-</head>
+  <?php 
+    $pagetitle = "Riwayat Peminjaman";
+    $pageCSS = "riwayat-peminjaman.css";
+
+    include 'includes/header.php'
+  ?>
 <body>
 <div class="app-layout">
-    <aside class="sidebar" id="sidebar">
-        <a href="menu.php?page=beranda" class="brand">SIRUKA</a>
-        <p class="menu-label">Main Menu</p>
-        <nav class="nav-menu">
-            <a href="beranda.php" class="nav-link"><span>⌂</span>Beranda</a>
-            <a href="cari-ruangan.php" class="nav-link"><span>▤</span>Cari Ruangan</a>
-            <a href="kalender.php" class="nav-link"><span>▦</span>Jadwal Kalender</a>
-            <a href="form-pengajuan.php" class="nav-link"><span>▧</span>Formulir Pengajuan</a>
-            <a href="riwayat-peminjaman.php" class="nav-link active"><span>◴</span>Riwayat Peminjaman</a>
-        </nav>
-        <p class="menu-label general-label">General</p>
-        <nav class="nav-menu">
-            <a href="profile.php" class="nav-link"><span>♙</span>Profile</a>
-            <a href="settings.php" class="nav-link"><span>⚙</span>Settings</a>
-            <a href="notifikasi.php" class="nav-link"><span>♧</span>Notifikasi</a>
-            <a href="index.php" class="nav-link"><span>⇥</span>Log Out</a>
-        </nav>
-    </aside>
+    
+  <?php include 'includes/sidebar.php'; ?>
 
     <main class="main-area">
-        <header class="topbar">
-            <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Buka menu">☰</button>
-            <label class="search-box">
-                <span>⌕</span>
-                <input type="search" id="searchInput" placeholder="Search" aria-label="Cari riwayat">
-            </label>
-            <div class="top-actions">
-                <a href="form-pengajuan.php" class="add-button">＋ Add Reservation</a>
-                <a class="round-action" href="notifikasi.php" aria-label="Buka notifikasi">♧</a>
-                <button class="round-action" type="button" aria-label="Pengaturan">⚙</button>
-                <a class="profile-action" href="profile.php" aria-label="Buka profil">♙</a>
-            </div>
-        </header>
+        <?php include 'includes/topbar.php' ?>
 
         <section class="content">
             <div class="page-heading">
