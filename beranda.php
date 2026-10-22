@@ -53,8 +53,20 @@
                 <p>Pilihan ruangan untuk kegiatan Anda</p>
             </div>
             <div class="room-chips">
-                <a href="cari-ruangan.php" class="room-chip"><span class="room-symbol">▦</span><span><strong>OCR 1</strong><small>Ruangan tersedia</small></span><i class="available-dot"></i></a>
-                <a href="cari-ruangan.php" class="room-chip"><span class="room-symbol">▦</span><span><strong>OCR 2</strong><small>Ruangan tersedia</small></span><i class="available-dot"></i></a>
+                <a href="cari-ruangan.php" class="room-chip">
+                  <span class="room-symbol">▦</span>
+                  <span>
+                    <strong>OCR 1</strong>
+                    <small>Ruangan tersedia</small>
+                  </span>
+                  <i class="available-dot"></i>
+                </a>
+                <a href="cari-ruangan.php" class="room-chip">
+                  <span class="room-symbol">▦</span>
+                  <span>
+                    <strong>OCR 2</strong>
+                    <small>Ruangan tersedia</small>
+                  </span><i class="available-dot"></i></a>
                 <a href="cari-ruangan.php" class="room-chip"><span class="room-symbol">▦</span><span><strong>OCR 6</strong><small>Ruangan tersedia</small></span><i class="available-dot"></i></a>
             </div>
             </section>

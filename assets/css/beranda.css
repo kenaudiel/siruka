@@ -606,6 +606,21 @@ a {
     background: #28ae61;
 }
 
+.view-button {
+    min-height: 34px;
+    padding: 0 12px;
+    border: 1px solid #dfe5eb;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--navy);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.view-button:hover {
+    background: #f1f6fb;
+}
+
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
