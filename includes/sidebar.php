@@ -14,6 +14,14 @@
       <span>◴</span>
       Riwayat Peminjaman
     </a>
+    <a href="tambah_ruangan.php" class="nav-link <?= (isset($pagetitle) && $pagetitle == 'Tambah Ruangan') ? 'active' : ''; ?>">
+      <span>◴</span>
+      Tambah Ruangan
+    </a>
+    <a href="konfirmasi.php" class="nav-link <?= (isset($pagetitle) && $pagetitle == 'Konfirmasi') ? 'active' : ''; ?>">
+      <span>◴</span>
+      Konfirmasi
+    </a>
   </nav>
 </aside>
 
