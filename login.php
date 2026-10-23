@@ -3,7 +3,6 @@
   <?php 
     $pagetitle = "Login - Siruka";
     $pageCSS = "login.css";
-    $layoutCSS = 
 
     include 'includes/header.php'
   ?>
