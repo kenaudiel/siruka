@@ -3,6 +3,7 @@
   <?php 
     $pagetitle = "Profile";
     $pageCSS = "profile.css";
+    $layoutCSS = "true";
 
     include 'includes/header.php'
   ?>

@@ -3,6 +3,7 @@
   <?php 
     $pagetitle = "Riwayat Peminjaman";
     $pageCSS = "riwayat-peminjaman.css";
+    $layoutCSS = "true";
 
     include 'includes/header.php'
   ?>

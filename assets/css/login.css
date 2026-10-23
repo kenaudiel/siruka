@@ -1,3 +1,4 @@
+/* login.css — khusus halaman Login (dulunya style.css). Berdiri sendiri, tidak butuh layout.css */
 
 * {
     margin: 0;
@@ -28,9 +29,9 @@ body {
     max-height: calc(100vh - 16px);
     overflow: hidden;
     border: 16px solid #34312c;
-background:
-    linear-gradient(rgba(0,0,0,.16), rgba(0,0,0,.16)),
-    url("../image/foto1.png") center / cover no-repeat;
+    background:
+        linear-gradient(rgba(0,0,0,.16), rgba(0,0,0,.16)),
+        url("../image/foto1.png") center / cover no-repeat;
 }
 
 .overlay {

@@ -5,4 +5,7 @@
     <?php if (isset($pageCSS)): ?>
         <link rel="stylesheet" href="assets/css/<?= $pageCSS ?>">
     <?php endif; ?>
+    <?php if (isset($layoutCSS)): ?>
+        <link rel="stylesheet" href="assets/css/layout.css">
+    <?php endif; ?>
 </head>

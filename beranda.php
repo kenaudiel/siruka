@@ -3,6 +3,7 @@
   <?php 
     $pagetitle = "Beranda";
     $pageCSS = "beranda.css";
+    $layoutCSS = "true";
 
     include 'includes/header.php'
   ?>

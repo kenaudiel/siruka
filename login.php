@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
   <?php 
-    $pagetitle = "Beranda - Siruka";
-    $pageCSS = "beranda.css";
+    $pagetitle = "Login - Siruka";
+    $pageCSS = "login.css";
+    $layoutCSS = 
 
     include 'includes/header.php'
   ?>

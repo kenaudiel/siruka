@@ -3,6 +3,7 @@
   <?php 
     $pagetitle = "Form Pengajuan";
     $pageCSS = "pengajuan.css";
+    $layoutCSS = "true";
 
     include 'includes/header.php'
   ?>
