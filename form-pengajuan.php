@@ -1,11 +1,24 @@
 <?php
 session_start();
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/project_siruka/config/app.php';
+$conn = require_once $_SERVER['DOCUMENT_ROOT'] . '/project_siruka/config/database.php';
+$filter = "tersedia";
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
+}
+
+$query = "SELECT kode_ruangan FROM ruangan WHERE status_ruangan = ? ORDER BY kode_ruangan ASC";
+$stmt = mysqli_prepare($conn, $query);  
+
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "s", $filter);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt); // $result sudah siap dipakai di sini
+} else {
+    // Penanganan jika prepare query gagal
+    $result = false;
 }
 ?>
 
@@ -33,7 +46,7 @@ if (!isset($_SESSION['user_id'])) {
 
                 <h1>Formulir Pengajuan Peminjaman Ruangan</h1>
 
-                <form id="reservationForm">
+                <form id="reservationForm" action="form-pengajuan_process.php" method="post">
 
                     <div class="form-field">
                         <label for="agenda">Nama Kegiatan / Agenda</label>
@@ -63,23 +76,19 @@ if (!isset($_SESSION['user_id'])) {
                             Lomba
                         </label>
 
-                        <label class="radio-other">
-                            <input type="radio" name="kategori" value="Lainnya">
-                            <span>Lainnya:</span>
-                            <input type="text" name="kategori_lainnya"
-                                   aria-label="Kategori lainnya">
-                        </label>
                     </fieldset>
 
-                    <div class="form-field">
-                        <label for="peserta">Estimasi Jumlah Peserta</label>
-                        <input type="number" id="peserta" name="peserta" min="1">
-                    </div>
-
-                    <div class="form-field">
-                        <label for="ruangan">Ruangan</label>
-                        <input type="text" id="ruangan" name="ruangan">
-                    </div>
+                    <label for="ruangan"><strong>Pilih Ruangan</strong></label><br>
+                    <select id="ruangan" name="ruangan" required style="padding:8px; background:white; outline:none; border-radius:5px; border:1px solid #dedede; margin-bottom:16px; margin-top:8px;">
+                        <option value="" disabled selected>-- Pilih Ruangan Tersedia --</option>
+                        <?php if ($result): ?>
+                            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                                <option value="<?= htmlspecialchars($row['kode_ruangan']); ?>">
+                                    <?= htmlspecialchars($row['kode_ruangan']); ?>
+                                </option>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </select>
 
                     <div class="form-field">
                         <label for="waktu">Tanggal &amp; Rentang Waktu</label>
@@ -99,7 +108,5 @@ if (!isset($_SESSION['user_id'])) {
 
     </main>
 </div>
-
-<script src="assets/js/pengajuan.js"></script>
 </body>
 </html>
