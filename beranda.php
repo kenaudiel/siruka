@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/project_siruka/config/app.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
   <?php 

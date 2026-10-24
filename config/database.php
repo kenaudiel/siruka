@@ -15,6 +15,5 @@ if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-echo "hello";
 return $conn;
 ?>
