@@ -16,7 +16,7 @@ unset($_SESSION['login_error']);
 <!DOCTYPE html>
 <html lang="id">
   <?php 
-    $pagetitle = "Login - Siruka";
+    $pagetitle = "Login";
     $pageCSS = "login.css";
 
     include 'includes/header.php';
@@ -27,8 +27,8 @@ unset($_SESSION['login_error']);
         <section class="login-container">
 
             <div class="left-content">
-                <h1>SIRUKA</h1>
-                <p>Sistem Reservasi Ruang Kampus<br>Terintegrasi.</p>
+                <h1 style="font-size:64px; margin-bottom:8px; color:black">SIRUKA</h1>
+                <p style="font-size:16px; color:black;">Sistem Reservasi Ruang Kampus<br>Terintegrasi.</p>
             </div>
 
             <div class="login-box">
@@ -39,12 +39,12 @@ unset($_SESSION['login_error']);
 
                 <form action="login_process.php" method="POST">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" style="color:black;">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password" style="color:black;">Password</label>
                         <input type="password" id="password" name="password" required>
                     </div>
 

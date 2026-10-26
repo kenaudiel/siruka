@@ -10,7 +10,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 8px;
-    background: #242321;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -26,7 +25,6 @@ body {
     height: min(70vw, 620px);
     max-height: calc(100vh - 16px);
     overflow: hidden;
-    border: 16px solid #34312c;
 }
 
 .overlay {
