@@ -103,39 +103,49 @@ $total_rows = mysqli_num_rows($result);
                             </tr>
                         </thead>
                         <tbody id="historyTable">
-                            <?php if ($total_rows > 0): ?>
-                                <?php while ($row = mysqli_fetch_assoc($result)): 
-                                    // Format ID (contoh: SRK-001, disesuaikan dengan ID database)
-                                    $formatted_id = 'SRK-' . str_pad($row['id'], 3, '0', STR_PAD_LEFT);
-                                    
-                                    // Pisahkan tanggal dan waktu dari kolom datetime (waktu_peminjaman)
-                                    $datetime = strtotime($row['waktu_peminjaman']);
-                                    $tanggal_format = date('d M Y', $datetime);
-                                    $waktu_format = date('H.i', $datetime) . ' WIB'; // atau sesuaikan format jamnya
+                          <?php if ($total_rows > 0): ?>
+                              <?php while ($row = mysqli_fetch_assoc($result)): 
+                                  $formatted_id = 'SRK-' . str_pad($row['id'], 3, '0', STR_PAD_LEFT);
+                                  
+                                  $datetime = strtotime($row['waktu_peminjaman']);
+                                  $tanggal_format = date('d M Y', $datetime);
+                                  $waktu_format = date('H.i', $datetime) . ' WIB';
 
-                                    // Tentukan class badge CSS berdas  arkan status
-                                    $status_val = $row['status'] ?? 'Menunggu';
-                                    $badge_class = 'pending';
-                                    if ($status_val === 'disetujui') $badge_class = 'approved';
-                                    elseif ($status_val === 'ditolak') $badge_class = 'rejected';
-                                    
-                                    // String untuk search filter JS
-                                    $search_string = strtolower($formatted_id . ' ' . $row['nama_kegiatan'] . ' ' . $row['kategori_kegiatan'] . ' ' . $row['ruangan_id'] . ' ' . $tanggal_format);
-                                ?>
-                                    <tr data-status="<?= htmlspecialchars($status_val); ?>" data-search="<?= htmlspecialchars($search_string); ?>">
-                                        <td class="id-cell"><?= htmlspecialchars($formatted_id); ?></td>
-                                        <td>
-                                            <strong><?= htmlspecialchars($row['nama_kegiatan']); ?></strong>
-                                            <small><<?= htmlspecialchars($row['kategori_kegiatan']); ?></small>
-                                        </td>
-                                        <td><?= htmlspecialchars($row['ruangan_id']); ?></td>
-                                        <td><?= htmlspecialchars($tanggal_format); ?></td>
-                                        <td><?= htmlspecialchars($waktu_format); ?></td>
-                                        <td><span class="status-badge <?= $badge_class; ?>"><?= htmlspecialchars($status_val); ?></span></td>
-                                        <td><button class="view-button" type="button" data-id="<?= $row['id']; ?>">Detail</button></td>
-                                    </tr>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
+                                  // 1. AMBIL DARI KOLOM YANG BENAR: status_peminjaman
+                                  $status_db = $row['status_peminjaman'] ?? 'diproses';
+                                  
+                                  // 2. TENTUKAN KELAS CSS BADGE DAN LABEL TAMPILAN
+                                  $badge_class = 'pending';
+                                  $status_label = 'Menunggu';
+
+                                  if ($status_db === 'disetujui') {
+                                      $badge_class = 'approved';
+                                      $status_label = 'Disetujui';
+                                  } elseif ($status_db === 'ditolak') {
+                                      $badge_class = 'rejected';
+                                      $status_label = 'Ditolak';
+                                  } elseif ($status_db === 'diproses') {
+                                      $badge_class = 'pending';
+                                      $status_label = 'Menunggu';
+                                  }
+
+                                  $search_string = strtolower($formatted_id . ' ' . $row['nama_kegiatan'] . ' ' . $row['kategori_kegiatan'] . ' ' . $row['ruangan_id'] . ' ' . $tanggal_format . ' ' . $status_label);
+                              ?>
+                                  <tr data-status="<?= htmlspecialchars($status_label); ?>" data-search="<?= htmlspecialchars($search_string); ?>">
+                                      <td class="id-cell"><?= htmlspecialchars($formatted_id); ?></td>
+                                      <td>
+                                          <strong><?= htmlspecialchars($row['nama_kegiatan']); ?></strong>
+                                          <small><?= htmlspecialchars($row['kategori_kegiatan']); ?></small>
+                                      </td>
+                                      <td><?= htmlspecialchars($row['ruangan_id']); ?></td>
+                                      <td><?= htmlspecialchars($tanggal_format); ?></td>
+                                      <td><?= htmlspecialchars($waktu_format); ?></td>
+                                      <!-- Menggunakan badge_class dan status_label yang dinamis -->
+                                      <td><span class="status-badge <?= $badge_class; ?>"><?= htmlspecialchars($status_label); ?></span></td>
+                                      <td><button class="view-button" type="button" data-id="<?= $row['id']; ?>">Detail</button></td>
+                                  </tr>
+                              <?php endwhile; ?>
+                          <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
