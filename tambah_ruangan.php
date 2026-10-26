@@ -1,4 +1,5 @@
 <?php
+session_start();
 $pageTitle = "Tambah Ruangan";
 $activePage = "tambah_ruangan";
 $success = false;
